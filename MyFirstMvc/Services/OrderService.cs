@@ -12,17 +12,19 @@ namespace MyFirstMvc.Services
     {
         public void CreateOrder(string account, CartVm cart, CheckoutVm vm)
         {
-            // 拉到Repo
+            // todo : 拉到Repo
             var db = new AppDbContext();
             var memberId = db.Members.First(m => m.Account == account).Id;
 
             var order = new Order
             {
                 MemberId = memberId,
-                // Name = vm.Name, 缺少~~~~~~
-                // Phone = vm.Phone, 缺少~~~~~~
+                // Name = vm.Name, 缺少...todo
+                // Phone = vm.Phone, 缺少...todo
+                // Email = vm.Email, 缺少...todo
                 OrderTime = DateTime.Now,
-                Status = 1, // 建立enum
+                // Coupon = vm.Coupon, 缺少...todo..允許Null
+                Status = 1, // todo : 建立enum
                 PaymentTypeId = Convert.ToInt32(vm.PaymnetType),
                 TotalPrice = cart.TotalPrice,
             };
