@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewBag.Title = "ActiveRegister";
+}
+@section css{
+    <link rel="stylesheet" href="~/Content/main_register.css">
+}
+<h2>ActiveRegister</h2>
+
+
+<div class="container">
+    <div class="memberarea">
+        <div class="memberinner align-items-center">
+            <div class="confirmarea">
+                <div><img src="~/images/camping_bn.jpg" alt="" class="img-fluid"></div>
+                <div class="alert alert-success">
+                    恭喜您，目前已成為本站會員，
+                    請點擊，<a href="@Url.Action("Login","Members")">此處</a>
+                    請進行登入
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

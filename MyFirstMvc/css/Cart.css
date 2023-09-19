@@ -1,0 +1,76 @@
+﻿/* 表格樣式 */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f1bc99;
+}
+
+.extra-checkbox {
+    /* 添加您的自訂樣式，例如背景顏色、邊框、大小等 */
+    width: 15px;
+    height: 20px;
+    background-color: #007bff;
+    border: 1px solid #007bff;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+/*刪除按鍵*/
+.delete-button {
+    background-color: rgb(248, 133, 133);
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+    /* 鼠标悬停时的样式 */
+    .delete-button:hover {
+        background-color: rgb(173, 98, 98);
+    }
+
+.totalArea {
+/*    width: 70%;*/
+    border-bottom: 2px solid #884d25; /* 添加2像素粗的黑色底線，您可以根據需要調整顏色和粗細 */
+    padding-bottom: 10px; /* 可選：添加一些底部內邊距以增加間距 */
+    margin-top: 65px;
+    display: flex;
+    justify-content: right;
+}
+
+label[for="total"] {
+    position: relative;
+    right: 1%;
+}
+
+#back, #goPay {
+    margin-left: 10px;
+    background-color: #f1bc99;
+    color: black;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+    #applyCouponButton:hover, #back:hover, #goPay:hover {
+        background-color: #d49f7b;
+    }
+
+.bottomArea {
+    text-align: right;
+    margin-top: 20px;
+/*    width: 70%;*/
+}

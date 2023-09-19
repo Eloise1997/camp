@@ -1,0 +1,21 @@
+﻿
+@{
+    ViewBag.Title = "CheckOut";
+}
+
+<h2>結帳</h2>
+<div class="row">
+    <div class="mb-3">
+        <label for="cityId" class="form-label">地址</label>
+        <div>
+            <select class="form-select form-select-sm" name="cityId" id="cityId" style="width:auto;display:inline-block"></select>
+            <select class="form-select form-select-sm" name="districtId" id="districtId" style="width:auto;display:inline-block"></select>
+            <input type="text" name="adress" class="form-control" value="" />
+        </div>
+    </div>
+</div>
+<input type="submit" class="btn btn-primary" id="btn" value="送出" />
+
+@section scripts{
+    <script src="~/js/Cart_Checkout.js"></script>
+}

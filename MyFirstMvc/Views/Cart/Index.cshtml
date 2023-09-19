@@ -1,0 +1,160 @@
+﻿@model MyFirstMvc.Models.ViewModels.CartVm
+
+@{
+    ViewBag.Title = "Carts";
+}
+@Styles.Render("~/css/progress.css")
+@Styles.Render("~/css/cart.css")
+<div class="conatiner">
+    <div class="row justify-content-center">
+        <div class="col-md-12 col-lg-12 col-sm-12">
+            <div class="CartPage">
+                <!--進度條 begin-->
+                <div class="pg">
+                    <div class="progress-container">
+                        <!-- 進度條 -->
+                        <!-- 第一個點（購物車） -->
+                        <div class="progress-dotnow" style="left: 0%;"></div>
+
+                        <!-- 第二個點（訂購資料） -->
+                        <div class="progress-dot" style="left: 33%;"></div>
+
+                        <!-- 第三個點（建立訂單） -->
+                        <div class="progress-dot" style="left: 66%;"></div>
+
+                        <!-- 第四個點（付款） -->
+                        <div class="progress-dot" style="left: 100%;"></div>
+                    </div>
+                    <div class="progressText">
+                        <div class="text" style="left: -1.5%;">購物車</div>
+                        <div class="text" style="left: 31%;">訂單資料</div>
+                        <div class="text" style="left: 64%;">建立訂單</div>
+                        <div class="text" style="left: 99.5%;">付款</div>
+                    </div>
+                </div>
+                <!--進度條 end-->
+                <!-- 表格部分 -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>營區</th>
+                            <th>房型</th>
+                            <th>入住日</th>
+                            <th>退房日</th>
+                            <th>單價</th>
+                            <th>夜數</th>
+                            <th>加床</th>
+                            <th>加床金額</th>
+                            <th>金額</th>
+                            <th>移除</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        @foreach (var item in Model.Items)
+                        {
+                            <tr>
+                                <td>@item.RoomType</td>
+                                <td>@item.RoomNumber</td>
+                                <td>@item.CheckInDate</td>
+                                <td>@item.CheckOutDate</td>
+                                <td>@item.RoomPrice</td>
+                                <td>@item.Days</td>
+                                <td>
+                                    <input type="checkbox" @(item.ExtraBed ? "checked" : "") onchange="updateSubTotal(this, item.ExtraBedPrice)" />
+                                </td>
+                                <td data-extraPrice>@(item.ExtraBed ? item.ExtraBedPrice.ToString() : "0")</td>
+                                <td data-subtotal>@item.SubTotal</td>
+                                <td>
+                                    <button class="btn btn-danger" onclick="removeRow(this, @item.SubTotal)">刪除</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+                <div class="totalArea">
+                    <span>小計：</span><span id="total">@Model.TotalPrice</span>
+                </div>
+                <div class="bottomArea">
+                    <button type="button" id="back">上一頁</button>
+                    <button type="button" id="goPay">下一步</button>
+                </div>
+                <!-- 表格部分 -->
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+        // 取得全部的 subtotal 元素
+        var subTotalCells = document.querySelectorAll('[data-subtotal]');
+
+        // 取得顯示總金額的元素
+        var totalLabel = document.getElementById('total');
+
+        // 定義 MutationObserver
+        var mutationObserver = new MutationObserver(function (mutationsList) {
+            updateTotal();
+        });
+
+        // 監聽每個 subtotal 元素的變化
+        subTotalCells.forEach(function (subTotalCell) {
+            mutationObserver.observe(subTotalCell, { childList: true });
+        });
+
+        // 初次執行一次，讓畫面初始化有正確的金額
+        updateTotal();
+
+        // 更新總金額的函數
+        function updateTotal() {
+            var total = 0;
+
+            subTotalCells.forEach(function (subTotalCell) {
+                total += parseInt(subTotalCell.textContent);
+            });
+
+            // 更新顯示總金額的元素
+            totalLabel.textContent = total.toLocaleString();
+        }
+
+        // checkbox勾選 需更新 SubTotal
+        function updateSubTotal(checkbox, price) {
+            var row = checkbox.parentNode.parentNode;
+            var subTotalCell = row.querySelector('[data-subtotal]'); // SubTotal 的位置
+            var extraPriceCell = row.querySelector('[data-extraPrice]'); // ExtraPrice 的位置
+            var subTotal = parseInt(subTotalCell.textContent); // 當前 SubTotal 的值
+
+            // 勾選 ExtraBed 加 SubTotal
+            if (checkbox.checked) {
+                subTotal += price;
+                extraPriceCell.textContent = price;
+            } else { // 如果取消勾選 ExtraBed，将 ExtraPrice 從 SubTotal 扣除
+                subTotal -= price;
+                extraPriceCell.textContent = 0
+            }
+
+            subTotalCell.textContent = subTotal; // 更新 SubTotal 的顯示值
+        }
+
+        // 移除
+        function removeRow(button) {
+            // 移除選定的元素
+            // button的父元素的父元素
+            var row = button.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+
+            // 更新 subtotal 的值，假設你的 subtotal 元素有一個 data-subtotal 屬性
+            var subTotalCell = row.querySelector('[data-subtotal]');
+            var currentSubTotal = parseInt(subTotalCell.textContent, 10);
+            subTotalCell.textContent = 0; // 將被刪除的行的 subtotal 設為 0
+
+            // 更新 total 的值
+            var total = document.getElementById("total");
+            var currentTotal = parseInt(total.textContent, 10);
+            var newTotal = currentTotal - currentSubTotal;
+
+            // 更新總金額
+            total.textContent = newTotal.toLocaleString();
+        }
+    </script>
+}

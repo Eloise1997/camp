@@ -1,0 +1,140 @@
+﻿@model MyFirstMvc.Models.ViewModels.CartVm
+
+@{
+    ViewBag.Title = "Cart";
+}
+@Styles.Render("~/css/progress.css")
+@Styles.Render("~/css/cart.css")
+<div class="conatiner">
+    <div class="row justify-content-center">
+        <div class="col-md-12 col-lg-12 col-sm-12">
+            <div class="CartPage">
+                <!--進度條 begin-->
+                <div class="pg">
+                    <div class="progress-container">
+                        <!-- 進度條 -->
+                        <div class="progress-bar" style="width: 33%;"></div>
+
+                        <!-- 第一個點（購物車） -->
+                        <div class="progress-dotnow" style="left: 0%;"></div>
+
+                        <!-- 第二個點（訂購資料） -->
+                        <div class="progress-dotnow" style="left: 33%;"></div>
+
+                        <!-- 第三個點（建立訂單） -->
+                        <div class="progress-dot" style="left: 66%;"></div>
+
+                        <!-- 第四個點（付款） -->
+                        <div class="progress-dot" style="left: 100%;"></div>
+                    </div>
+                    <div class="progressText">
+                        <div class="text" style="left: -1.5%;">購物車</div>
+                        <div class="text" style="left: 31%;">訂單資料</div>
+                        <div class="text" style="left: 64%;">建立訂單</div>
+                        <div class="text" style="left: 99.5%;">付款</div>
+                    </div>
+                </div>
+                <!--進度條 end-->
+                <!-- 表格部分 -->
+                <table>
+                    <thead>
+                        <tr>
+                            <th>營區</th>
+                            <th>房型</th>
+                            <th>入住日</th>
+                            <th>退房日</th>
+                            <th>單價</th>
+                            <th>夜數</th>
+                            <th>加床</th>
+                            <th>加床金額</th>
+                            <th>金額</th>
+                            <th>移除</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody">
+                        @foreach (var item in Model.Items)
+                        {
+                            <tr>
+                                <td>@item.RoomType</td>
+                                <td>@item.RoomNumber</td>
+                                <td>@item.CheckInDate</td>
+                                <td>@item.CheckOutDate</td>
+                                <td>@item.RoomPrice</td>
+                                <td>@item.Days</td>
+                                <td>
+                                    <input type="checkbox" @(item.ExtraBed ? "checked" : "") onchange="updateSubTotal(this, item.ExtraBedPrice)" />
+                                </td>
+                                <td data-extraPrice>@(item.ExtraBed ? item.ExtraBedPrice.ToString() : "0")</td>
+                                <td data-subtotal>@item.SubTotal</td>
+                                <td>
+                                    <button class="btn btn-danger" onclick="removeRow(this, @item.SubTotal)">刪除</button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <!--優惠碼專區 begin-->
+                <div class="calPrice">
+                    <div class="coupon">
+                        <label for="coupon">優惠碼：</label>
+                        <input type="text" id="coupon" name="coupon" required>
+
+                        <button type="button" id="applyCouponButton">使用</button>
+                    </div>
+                    <div class="total">
+                        <span>小計：</span><span id="total">@Model.TotalPrice</span>
+                        <br>
+                        <span>折扣：</span><span id="discount">-500</span>
+                        <br>
+                        <span>總金額：</span><span id="total">@Model.TotalPrice</span>
+                    </div>
+                </div>
+                <!--優惠碼專區 end-->
+                <div class="totalArea">
+                    <span>小計：</span><span id="total">@Model.TotalPrice</span>
+                </div>
+                <div class="bottomArea">
+                    <button type="button" id="back">上一頁</button>
+                    <button type="button" id="goPay">下一步</button>
+                </div>
+                <div class="buyerInfo">
+
+                    <div class="buyerInfo-data">
+
+                        <label for="buyerInfo-title">訂房人資料</label><br><br>
+
+                        <label for="name"><span>*</span>姓名：</label>
+                        <input type="text" id="name" name="name" required><br><br>
+
+                        <label for="phone"><span>*</span>電話號碼：</label>
+                        <input type="tel" id="phone" name="phone" required><br><br>
+
+                        <label for="email"><span>*</span>電子郵件：</label>
+                        <input type="email" id="email" name="email" required><br><br>
+
+                        <label for="payment"><span>*</span>付款方式：</label>
+                        <select id="payment" name="payment">
+                            <!-- 預設選項 -->
+                            <option value="" disabled selected>請選擇付款方式</option>
+
+                            <!-- 預先設定的付款方式選項 -->
+                            <option value="credit_card">信用卡</option>
+                            <option value="paypal">PayPal</option>
+                            <option value="bank_transfer">銀行轉帳</option>
+                            <option value="cash">現金</option>
+                        </select>
+                    </div>
+
+                    <div class="buyerInfo-memo">
+                        <label for="memo">備註：</label>
+                        <textarea rows="4" cols="50" placeholder="如您有特殊需求，可以在此欄位註明。"></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+    <script>
+    </script>
+}
