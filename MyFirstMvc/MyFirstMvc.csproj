@@ -155,9 +155,12 @@
     <Compile Include="Models\Repositories\BaseRepository.cs" />
     <Compile Include="Models\Repositories\CartItemsRepository.cs" />
     <Compile Include="Models\Repositories\CartRepository.cs" />
+    <Compile Include="Models\Repositories\PaymentTypeRepository.cs" />
+    <Compile Include="Models\ViewModels\Cart\CheckoutVm.cs" />
     <Compile Include="Models\ViewModels\Members\RegisterExts.cs" />
     <Compile Include="Models\ViewModels\Members\RegisterVm.cs" />
     <Compile Include="Services\CartService.cs" />
+    <Compile Include="Services\OrderService.cs" />
     <Content Include="css\progress.css" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
