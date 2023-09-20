@@ -1,10 +1,7 @@
-﻿using MyFirstMvc.Models.ViewModels;
-using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Web;
 
-namespace MyFirstMvc.Models.ViewModels
+namespace MyFirstMvc.Models.ViewModels.Cart
 {
     public class CartVm
     {
@@ -14,8 +11,8 @@ namespace MyFirstMvc.Models.ViewModels
 
         public List<CartItemsVm> Items { get; set; }
 
-		public int TotalPrice => Items.Sum(x => x.SubTotal);
+        public int TotalPrice => Items.Sum(x => x.SubTotal);
 
-		public bool AllowCheckout => Items.Any(); // 至少要有一筆明細資料才可以結帳
-	}
+        public bool AllowCheckout => Items.Any(); // 至少要有一筆明細資料才可以結帳
+    }
 }

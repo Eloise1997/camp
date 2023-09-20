@@ -1,7 +1,7 @@
 ﻿using MyFirstMvc.Models;
 using MyFirstMvc.Models.EFModels;
 using MyFirstMvc.Models.Repositories;
-using MyFirstMvc.Models.ViewModels;
+using MyFirstMvc.Models.ViewModels.Cart;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,9 +32,10 @@ namespace MyFirstMvc.Services
             string msg = "不可新增重複的項目";
 
             // 取得目前購物車主檔,若沒有就立即新增一筆並傳回
-            CartVm cart = GetOrCreateCart(buyer, vm);
+            CartVm cart = GetOrCreateCart(buyer);
 
-            if (cart != null)
+            // 檢查是否有加入重複的明細檔，有的話，阻擋加入
+            if (cart != null && !this.IsRepeat(cart, vm))
             {
                 var entity = AutoMapperHelper.MapperObj.Map<CartItem>(vm);
                 entity.CartId = cart.Id;
@@ -53,7 +54,7 @@ namespace MyFirstMvc.Services
         /// </summary>
         /// <param name="buyer"></param>
         /// <returns></returns>
-        private CartVm GetOrCreateCart(string buyer, CartItemsVm vm)
+        public CartVm GetOrCreateCart(string buyer)
         {
             var cartRepo = new CartRepository();
             var cart = cartRepo.GetByMember(buyer);
@@ -73,20 +74,41 @@ namespace MyFirstMvc.Services
             }
 
             // 傳回目前購物車主檔/明細檔紀錄
-            // 1.先檢查是否有加入重複的明細檔，有的話，不可加入，並回傳Null
 
-            if (!cart.CartItems.Any(item =>
-                    item.RoomId == vm.RoomId &&
-                    item.CheckInDate.Date == Convert.ToDateTime(vm.CheckInDate).Date &&
-                    item.CheckOutDate.Date == Convert.ToDateTime(vm.CheckOutDate).Date))
-                return new CartVm
-                {
-                    Id = cart.Id,
-                    MemberAccount = cart.MemberAccount,
-                    Items = AutoMapperHelper.MapperObj.Map<List<CartItemsVm>>(cart.CartItems),
-                };
-            else
-                return new CartVm();
+            return new CartVm
+            {
+                Id = cart.Id,
+                MemberAccount = cart.MemberAccount,
+                Items = AutoMapperHelper.MapperObj.Map<List<CartItemsVm>>(cart.CartItems),
+            };
+        }
+
+        public void DeleteCartItem(int cartItemId)
+        {
+            new CartItemsRepository().Delete(cartItemId);
+        }
+
+        public void ProcessCheckout(string account, CartVm cart, CheckoutVm vm)
+        {
+            // 建立訂單主檔明細檔
+            new OrderService().CreateOrder(account, cart, vm);
+
+            // 清空購物車
+            new CartRepository().EmptyCart(account);
+        }
+
+        /// <summary>
+        /// 比較欲新增的明細檔是否重複
+        /// </summary>
+        /// <param name="cartVm"></param>
+        /// <param name="vm"></param>
+        /// <returns></returns>
+        private bool IsRepeat(CartVm cartVm, CartItemsVm vm)
+        {
+            return cartVm.Items.Any(item =>
+                item.RoomId == vm.RoomId &&
+                Convert.ToDateTime(item.CheckInDate).Date == Convert.ToDateTime(vm.CheckInDate).Date &&
+                Convert.ToDateTime(item.CheckOutDate).Date == Convert.ToDateTime(vm.CheckOutDate).Date);
         }
     }
 }

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Xml.Linq;
 
-namespace MyFirstMvc.Models.ViewModels
+namespace MyFirstMvc.Models.ViewModels.Cart
 {
     public class CartItemsVm
     {

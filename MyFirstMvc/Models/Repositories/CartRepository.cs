@@ -28,5 +28,18 @@ namespace MyFirstMvc.Models.Repositories
             _db.SaveChanges();
             return cart.Id;
         }
+
+        /// <summary>
+        /// 清空指定 User 購物車
+        /// </summary>
+        /// <param name="account"></param>
+        public void EmptyCart(string account)
+        {
+            var cart = _db.Carts.FirstOrDefault(c => c.MemberAccount == account);
+            if (cart == null) return;
+
+            _db.Carts.Remove(cart);
+            _db.SaveChanges();
+        }
     }
 }

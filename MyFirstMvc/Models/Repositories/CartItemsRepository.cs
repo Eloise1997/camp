@@ -55,5 +55,16 @@ namespace MyFirstMvc.Models.Repositories
                     DbFunctions.TruncateTime(x.CheckInDate) == DbFunctions.TruncateTime(checkInDate) &&
                     DbFunctions.TruncateTime(x.CheckOutDate) == DbFunctions.TruncateTime(checkOutDate));
         }
+
+        /// <summary>
+        /// 刪除單筆資料
+        /// </summary>
+        /// <param name="cartItemId"></param>
+        public void Delete(int cartItemId)
+        {
+            var entity = _db.CartItems.Find(cartItemId);
+            _db.CartItems.Remove(entity);
+            _db.SaveChanges();
+        }
     }
 }
