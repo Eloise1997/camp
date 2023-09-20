@@ -1,0 +1,49 @@
+body{
+    background-image: url(../images/home_bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+.orderPage {
+    width: 100%;
+    height: auto; /* 100%视口高度，使其铺满整个视口 */
+    display: flex;
+    flex-direction: column; /* 垂直方向排列子元素 */
+    align-items: center;
+    justify-content: center;
+    padding: 4% 0;
+    margin: 2% 0;
+}
+
+/* .orderinfoarea{
+    background: #FFF;
+    box-shadow: 1px 1px 10px #b7b7b7;
+    border-radius: 20px;
+} */
+
+.buyerInfo {
+    width: 70%;
+    display: flex;
+}
+
+label span {
+    color: red;
+}
+
+label[for="name"] {
+    padding-right: 32px; /* 使用2個字符的寬度作為內邊距 */
+}
+
+/*優惠券 & 結帳區*/
+.calPrice {
+    width: 70%;
+    border-bottom: 2px solid #884d25; /* 添加1像素粗的黑色底線，您可以根據需要調整顏色和粗細 */
+    padding-bottom: 10px; /* 可選：添加一些底部內邊距以增加間距 */
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.total {
+    margin-right: 20px;
+}

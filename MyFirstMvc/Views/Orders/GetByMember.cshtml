@@ -2,6 +2,12 @@
 @{
     ViewBag.Title = "訂單一覽";
 }
+
+@section css{
+    <link rel="stylesheet" href="~/css/Progress.css">
+    <link rel="stylesheet" href="~/css/OrderHistory.css" />
+}
+
 <div class="conatiner">
     <div class="row justify-content-center">
         <div class="col-md-10 col-lg-12 col-sm-12">
@@ -23,14 +29,14 @@
                     <tbody>
                         @foreach (var order in Model)
                         {
-                            <tr data-bs-toggle="collapse" data-bs-target="#order_@order.DiplayNumber" aria-expanded="false">
+                            <tr data-bs-toggle="collapse" data-bs-target="#order_@order.DisplayNumber" aria-expanded="false">
                                 <td>@order.OrderNumber</td>
                                 <td>@order.OrderTime</td>
                                 <td>@order.PaymentType</td>
                                 <td>@order.Price</td>
                                 <td>@order.Status</td>
                             </tr>
-                            <tr id="order_@order.DiplayNumber" class="collapse">
+                            <tr id="order_@order.DisplayNumber" class="collapse">
                                 <td colspan="5">
                                     <!-- 訂單詳細 -->
                                     <table class="table table-borderless">

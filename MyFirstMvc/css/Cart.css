@@ -1,6 +1,35 @@
-﻿/* 表格樣式 */
-table {
+﻿body {
+    background-image: url(../images/home_bg.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cartPage {
     width: 100%;
+    height: auto; /* 100%视口高度，使其铺满整个视口 */
+    display: flex;
+    flex-direction: column; /* 垂直方向排列子元素 */
+    align-items: center;
+    justify-content: center;
+    padding: 4% 0;
+    margin: 2% 0;
+}
+
+.main {
+    padding: 3% 0;
+}
+
+.cartarea {
+    padding: 3% 0;
+    background: #FFF;
+    box-shadow: 1px 1px 10px #b7b7b7;
+    border-radius: 20px;
+    z-index: -1;
+}
+
+/* 表格樣式 */
+table {
+    width: 70%;
     border-collapse: collapse;
     margin-top: 20px;
 }
@@ -26,7 +55,7 @@ th {
 
 /*刪除按鍵*/
 .delete-button {
-    background-color: rgb(248, 133, 133);
+    background-color: rgb(248 133 133);
     color: white;
     border: none;
     padding: 5px 10px;
@@ -35,13 +64,13 @@ th {
     border-radius: 5px;
 }
 
-    /* 鼠标悬停时的样式 */
-    .delete-button:hover {
-        background-color: rgb(173, 98, 98);
-    }
+/* 鼠标悬停时的样式 */
+.delete-button:hover {
+    background-color: rgb(173 98 98);
+}
 
 .totalArea {
-/*    width: 70%;*/
+    width: 70%;
     border-bottom: 2px solid #884d25; /* 添加2像素粗的黑色底線，您可以根據需要調整顏色和粗細 */
     padding-bottom: 10px; /* 可選：添加一些底部內邊距以增加間距 */
     margin-top: 65px;
@@ -65,12 +94,12 @@ label[for="total"] {
     border-radius: 5px;
 }
 
-    #applyCouponButton:hover, #back:hover, #goPay:hover {
+ #applyCouponButton:hover, #back:hover, #goPay:hover {
         background-color: #d49f7b;
     }
 
 .bottomArea {
     text-align: right;
     margin-top: 20px;
-/*    width: 70%;*/
+    width: 70%;
 }
