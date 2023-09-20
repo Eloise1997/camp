@@ -1,14 +1,17 @@
 ﻿@model MyFirstMvc.Models.ViewModels.CartVm
 
 @{
-    ViewBag.Title = "Carts";
+    ViewBag.Title = "Cart";
 }
-@Styles.Render("~/css/progress.css")
-@Styles.Render("~/css/cart.css")
+
+@section css{
+    <link rel="stylesheet" href="~/css/Progress.css">
+    <link rel="stylesheet" href="~/css/Cart.css">
+}
 <div class="conatiner">
     <div class="row justify-content-center">
         <div class="col-md-12 col-lg-12 col-sm-12">
-            <div class="CartPage">
+            <div class="cartPage">
                 <!--進度條 begin-->
                 <div class="pg">
                     <div class="progress-container">
@@ -37,8 +40,8 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>營區</th>
-                            <th>房型</th>
+                            <th>營區房型</th>
+                            <th>房號</th>
                             <th>入住日</th>
                             <th>退房日</th>
                             <th>單價</th>
@@ -65,7 +68,7 @@
                                 <td data-extraPrice>@(item.ExtraBed ? item.ExtraBedPrice.ToString() : "0")</td>
                                 <td data-subtotal>@item.SubTotal</td>
                                 <td>
-                                    <button class="btn btn-danger" onclick="removeRow(this, @item.SubTotal)">刪除</button>
+                                    <button class="delete-button" onclick="removeRow(this, @item.SubTotal)">刪除</button>
                                 </td>
                             </tr>
                         }

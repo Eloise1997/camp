@@ -3,8 +3,12 @@
 @{
     ViewBag.Title = "Cart";
 }
-@Styles.Render("~/css/progress.css")
-@Styles.Render("~/css/cart.css")
+@*@Styles.Render("~/css/progress.css")
+@Styles.Render("~/css/cart.css")*@
+@section css{
+    <link rel="stylesheet" href="~/css/Progress.css">
+    <link rel="stylesheet" href="~/css/OrderInfo.css">
+}
 <div class="conatiner">
     <div class="row justify-content-center">
         <div class="col-md-12 col-lg-12 col-sm-12">
@@ -39,8 +43,8 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>營區</th>
-                            <th>房型</th>
+                            <th>營區房型</th>
+                            <th>房號</th>
                             <th>入住日</th>
                             <th>退房日</th>
                             <th>單價</th>

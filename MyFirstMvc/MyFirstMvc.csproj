@@ -158,7 +158,11 @@
     <Compile Include="Models\ViewModels\Members\RegisterExts.cs" />
     <Compile Include="Models\ViewModels\Members\RegisterVm.cs" />
     <Compile Include="Services\CartService.cs" />
-    <Content Include="css\progress.css" />
+    <Content Include="css\Order.css" />
+    <Content Include="css\OrderHistory.css" />
+    <Content Include="css\OrderInfo.css" />
+    <Content Include="css\Pay.css" />
+    <Content Include="css\Progress.css" />
     <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />

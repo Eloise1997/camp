@@ -1,7 +1,7 @@
 ﻿/* 將.progress設置為Flexbox佈局，使其內容水平置中 */
 .pg {
 	position: relative;
-	/*width: 60%;*/
+	width: 60%;
 	height: 50px;
 }
 
