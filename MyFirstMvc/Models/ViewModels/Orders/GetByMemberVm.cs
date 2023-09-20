@@ -9,7 +9,7 @@ namespace MyFirstMvc.Models.ViewModels.Orders
 {
 	public class GetByMemberVm
 	{
-		public int DiplayNumber { get; set; }
+		public int DisplayNumber { get; set; }
 
 		/// <summary>
 		/// 訂單編號

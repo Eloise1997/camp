@@ -1,5 +1,6 @@
 ﻿using MyFirstMvc.Models.EFModels;
 using MyFirstMvc.Models.Infra;
+using MyFirstMvc.Models.Repositories;
 using MyFirstMvc.Models.ViewModels.Members;
 using System;
 using System.Collections.Generic;
@@ -68,6 +69,11 @@ namespace MyFirstMvc.Controllers
 			db.SaveChanges();
 
 			return View();
+		}
+		public ActionResult MyOrders()
+		{
+			var orders = new OrderRepository().GetOrders("aliee");
+			return View(orders);
 		}
 
 		private void RegisterMember(RegisterVm vm)

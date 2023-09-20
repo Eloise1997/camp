@@ -23,7 +23,7 @@ namespace MyFirstMvc.Controllers
 			{
 				new GetByMemberVm()
 				{
-					DiplayNumber = 1,
+					DisplayNumber = 1,
 					OrderNumber = "AA0915230001",
 					OrderTime = "2023/09/15",
 					PaymentType = "現金",
@@ -51,7 +51,7 @@ namespace MyFirstMvc.Controllers
 				},
 				new GetByMemberVm()
 				{
-					DiplayNumber = 2,
+					DisplayNumber = 2,
 					OrderNumber = "AA0915230002",
 					OrderTime = "2023/09/17",
 					PaymentType = "現金",
@@ -79,7 +79,7 @@ namespace MyFirstMvc.Controllers
 				},
 				new GetByMemberVm()
 				{
-					DiplayNumber = 3,
+					DisplayNumber = 3,
 					OrderNumber = "AA0915230003",
 					OrderTime = "2023/09/19",
 					PaymentType = "現金",

@@ -155,9 +155,14 @@
     <Compile Include="Models\Repositories\BaseRepository.cs" />
     <Compile Include="Models\Repositories\CartItemsRepository.cs" />
     <Compile Include="Models\Repositories\CartRepository.cs" />
+    <Compile Include="Models\Repositories\OrderRepository.cs" />
     <Compile Include="Models\ViewModels\Members\RegisterExts.cs" />
     <Compile Include="Models\ViewModels\Members\RegisterVm.cs" />
+    <Compile Include="Models\ViewModels\Orders\MyOrder.cs" />
     <Compile Include="Services\CartService.cs" />
+    <Content Include="Content\main.css" />
+    <Content Include="Content\main_all.css" />
+    <Content Include="Content\main_register.css" />
     <Content Include="css\Order.css" />
     <Content Include="css\OrderHistory.css" />
     <Content Include="css\OrderInfo.css" />
@@ -239,6 +244,7 @@
     <Content Include="Views\Members\Register.cshtml" />
     <Content Include="Views\Members\RegisterConfirm.cshtml" />
     <Content Include="Views\Members\ActiveRegister.cshtml" />
+    <Content Include="Views\Members\MyOrders.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
