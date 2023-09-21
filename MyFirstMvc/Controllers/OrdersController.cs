@@ -15,11 +15,15 @@ namespace MyFirstMvc.Controllers
 			return View();
 		}
 
-		public ActionResult GetByMember()
-		{
-			#region Fake Data
+        [Authorize]
 
-			var model = new List<GetByMemberVm>
+        public ActionResult GetByMember()
+		{
+            string buyer = User.Identity.Name; // 買家帳號
+
+            #region Fake Data
+
+            var model = new List<GetByMemberVm>
 			{
 				new GetByMemberVm()
 				{
