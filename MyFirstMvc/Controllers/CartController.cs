@@ -29,7 +29,7 @@ namespace MyFirstMvc.Controllers
         [Authorize]
         public ActionResult Checkout()
         {
-            var buyer = User.Identity.Name;
+            var buyer = User.Identity.Name; 
             var cart = new CartService().GetOrCreateCart(buyer);
 
             if (cart.AllowCheckout == false) ViewBag.ErrorMessage = "購物車是空的,無法進行結帳";
@@ -58,59 +58,22 @@ namespace MyFirstMvc.Controllers
             return View("ConfirmCheckout"); // todo 轉導到結帳頁
         }
 
-        // GET: Cart
-        public ActionResult Index()
-        {
-            // memberId 也許是從登入資訊來
-            var model = new CartService().Get("aliee");
-
-            //var model = new CartVm()
-            //{
-            //	Items = new List<CartItemsVm>
-            //	{
-            //		new CartItemsVm
-            //		{
-            //			Id = 1,
-            //			RoomType = "森林雙人房",
-            //			RoomNumber = "201",
-            //			CheckInDate = "2023-09-10",
-            //			CheckOutDate = "2023-09-10",
-            //			Days = 1,
-            //			ExtraBed = false,
-            //			ExtraPrice = 0,
-            //			RoomPrice = 1000,
-            //			SubTotal = 1000,
-            //		},
-            //		new CartItemsVm
-            //		{
-            //			Id = 2,
-            //			RoomType = "河畔雙人房",
-            //			RoomNumber = "104",
-            //			CheckInDate = "2023-09-11",
-            //			CheckOutDate = "2023-09-12",
-            //			Days = 1,
-            //			ExtraBed = true,
-            //			ExtraPrice = 500,
-            //			RoomPrice = 1000,
-            //			SubTotal = 1500,
-            //		}
-            //	},
-            //	Total = 2500,
-            //	ExtraBedPrice = 500,
-            //};
-            return View(model);
-        }
-
         public ActionResult OrderInfo()
         {
             return View();
         }
 
-        public ActionResult Cart()
+		// GET: Cart
+		public ActionResult Cart()
         {
-            var model = new CartVm()
+			// memberId 也許是從登入資訊來
+			var model = new CartService().Get("aliee");
+			
             {
-                Items = new List<CartItemsVm>
+
+                var model2 = new CartVm()
+                {
+                    Items = new List<CartItemsVm>
                 {
                     new CartItemsVm
                     {
@@ -138,10 +101,13 @@ namespace MyFirstMvc.Controllers
                         RoomPrice = 1000,
 						//SubTotal = 1500,
 					}
-                },
-                //Total = 2500,
-                //ExtraBedPrice = 500,
-            };
+                }
+                };
+
+			return View(model2);
+				//Total = 2500,
+				//ExtraBedPrice = 500,
+			}
             return View(model);
         }
 

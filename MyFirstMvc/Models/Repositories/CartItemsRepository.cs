@@ -21,13 +21,11 @@ namespace MyFirstMvc.Models.Repositories
             return _db.CartItems.Where(x => x.CartId == cartId).ToList();
         }
 
-        /// <summary>
-        /// 加入購物車,若明細不存在就新增一筆
-        /// </summary>
-        /// <param name="cart"></param>
-        /// <param name="productId"></param>
-        /// <param name="qty"></param>
-        public void AddCartItem(CartItem cartItem)
+		/// <summary>
+		///  加入購物車,若明細不存在就新增一筆
+		/// </summary>
+		/// <param name="cartItem"></param>
+		public void AddCartItem(CartItem cartItem)
         {
             var db = new AppDbContext();
 

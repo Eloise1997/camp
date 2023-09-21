@@ -167,7 +167,6 @@
     <Compile Include="Services\CartService.cs" />
     <Compile Include="Services\OrderService.cs" />
     <Content Include="Content\main_member.css" />
-    <Content Include="css\progress.css" />
     <Content Include="Content\main.css" />
     <Content Include="Content\main_all.css" />
     <Content Include="Content\main_register.css" />
@@ -250,7 +249,6 @@
     <Content Include="Views\Products\Create.cshtml" />
     <Content Include="Views\Orders\GetByMember.cshtml" />
     <Content Include="Views\Cart\Cart.cshtml" />
-    <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\OrderInfo.cshtml" />
     <Content Include="Views\Members\Register.cshtml" />
     <Content Include="Views\Members\RegisterConfirm.cshtml" />

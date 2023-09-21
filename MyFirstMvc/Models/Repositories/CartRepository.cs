@@ -15,7 +15,7 @@ namespace MyFirstMvc.Models.Repositories
         /// <summary>
         /// 透過會員Key取得購物車資訊
         /// </summary>
-        /// <param name="memberId">會員key</param>
+        /// <param name="memberAccount">會員key</param>
         /// <returns></returns>
         public Cart GetByMember(string account)
         {
