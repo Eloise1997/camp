@@ -1,11 +1,12 @@
-﻿using System;
+﻿using MyFirstMvc.Models.ViewModels.Orders;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
 
-namespace MyFirstMvc.Models.ViewModels.Orders
+namespace MyFirstMvc.Models.ViewModels.Members
 {
 	public class MyOrder
 	{

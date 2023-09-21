@@ -20,7 +20,7 @@
 <body>
 
     <!--導覽列 begin-->
-    <nav class="navbar navbar-expand-md navbar-dark fixed-top nav_bg mb-5">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top nav_bg">
         <div class="container">
             <a class="navbar-brand hometitle" href="@Url.Action("Index", "Home", new { area = "" })">
                 <span>
@@ -55,12 +55,28 @@
                     </li>
 
                 </ul>
-                <div class="memberNav d-flex flex-nowrap">
-                    <a href="member.html" class="text-white"><i class="bi bi-person-fill"></i>會員專區</a>
-                    <a href="#" class="text-white"><i class="bi bi-person-fill"></i>會員登入</a>
-                    <div>
-                        <a href="#" class="text-white me-1"><i class="bi bi-cart pe-1"></i>購物車&nbsp;(<span>1</span>)</a>
-                    </div>
+                <div class="memberNav d-flex flex-nowrap ">
+                    @{
+                        if (User.Identity.IsAuthenticated)
+                        {
+
+
+                            <a href="@Url.Action("Index", "Members", new { area = "" })" class="text-white me-2 ms-2"><i class="bi bi-person-fill"></i>會員專區</a>
+                            <div>
+                                <a href="#" class="text-white  me-1 ms-1"><i class="bi bi-cart pe-1"></i>購物車&nbsp;(<span>1</span>)</a>
+                            </div>
+                            @Html.ActionLink("登出", "Logout", "Members", new { area = "" }, new { @class = "nav-link text-white  me-1 ms-1" })
+
+                        }
+                        else
+                        {
+                            <a href="@Url.Action("Login", "Members", new { area = "" })" class="text-white"><i class="bi bi-person-fill"></i>會員登入</a>
+
+                        }
+                    }
+
+
+
                 </div>
             </div>
         </div>
@@ -68,14 +84,14 @@
     <!--導覽列 end-->
     <div class="main">
         @RenderBody()
+
+
+        <footer>
+            <div><img src="~/images/campinglogo2.png" alt="" class=""></div>
+            <div>&copy; @DateTime.Now.Year - Camping放鬆村</div>
+            <div>本圖片素材引用來源自FREEPIK並僅作為學術用途</div>
+        </footer>
     </div>
-
-    <footer>
-        <div><img src="~/images/campinglogo2.png" alt="" class=""></div>
-        <div>&copy; @DateTime.Now.Year - Camping放鬆村</div>
-        <div>本圖片素材引用來源自FREEPIK並僅作為學術用途</div>
-    </footer>
-
 
 
     <script src="https://kit.fontawesome.com/fa483230ea.js" crossorigin="anonymous"></script>
@@ -84,7 +100,6 @@
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-    <script src="~/Scripts/bootstrap.bundle.js"></script>
 
 </body>
 </html>

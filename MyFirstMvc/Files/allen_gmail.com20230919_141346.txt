@@ -1,0 +1,8 @@
+﻿from:g01.webapp@gmail.com
+to:allen@gmail.com
+subject:[新會員確認信]
+
+Hi AllenKuo
+</ br>
+請點此連結[<a href='https://localhost:44337/Members/ActiveRegister?memberId=1&confirmCode=c1ea3782892644b6b911c87170bc1f86' target='_blank'>的確是我的申請會員</a>],如果您沒有提供申請, 請忽略本信,謝謝
+</ br>
