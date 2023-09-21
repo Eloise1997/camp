@@ -146,7 +146,9 @@ namespace FProjectCamping.Members.Controllers
             return RedirectToAction("Index");
 
         }
-		public ActionResult MyOrders()
+
+		[Authorize]
+		public ActionResult MyOrders() // todo
 		{
 			var orders = new OrderRepository().GetOrders("aliee");
 			return View(orders);

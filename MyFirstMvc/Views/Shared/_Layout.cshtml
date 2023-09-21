@@ -63,7 +63,7 @@
 
                             <a href="@Url.Action("Index", "Members", new { area = "" })" class="text-white me-2 ms-2"><i class="bi bi-person-fill"></i>會員專區</a>
                             <div>
-                                <a href="#" class="text-white  me-1 ms-1"><i class="bi bi-cart pe-1"></i>購物車&nbsp;(<span>1</span>)</a>
+                                <a href="@Url.Action("Cart", "Cart", new { area = "" })" class="text-white  me-1 ms-1"><i class="bi bi-cart pe-1"></i>購物車&nbsp;(<span>1</span>)</a>
                             </div>
                             @Html.ActionLink("登出", "Logout", "Members", new { area = "" }, new { @class = "nav-link text-white  me-1 ms-1" })
 
