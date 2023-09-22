@@ -64,7 +64,7 @@
                             {
                                 <tr>
                                     <td>@Html.DisplayFor(model => model.Items[i].RoomType)</td>
-                                    <td>@Html.DisplayFor(model => model.Items[i].RoomNumber)</td>
+                                    <td>@Html.DisplayFor(model => model.Items[i].Room)</td>
                                     <td>@Html.DisplayFor(model => model.Items[i].CheckInDate)</td>
                                     <td>@Html.DisplayFor(model => model.Items[i].CheckOutDate)</td>
                                     <td>@Html.DisplayFor(model => model.Items[i].RoomPrice)</td>
@@ -79,8 +79,8 @@
                                     </td>
                                     <td>
                                         @Html.HiddenFor(model => model.Items[i].Id)
-                                        @Html.HiddenFor(model => model.Items[i].RoomType)
-                                        @Html.HiddenFor(model => model.Items[i].RoomNumber)
+                                        @Html.HiddenFor(model => model.Items[i].RoomTypeId)
+                                        @Html.HiddenFor(model => model.Items[i].RoomId)
                                         @Html.HiddenFor(model => model.Items[i].CheckInDate)
                                         @Html.HiddenFor(model => model.Items[i].CheckOutDate)
                                         @Html.HiddenFor(model => model.Items[i].RoomPrice)
@@ -97,6 +97,8 @@
                     <div class="totalArea">
                         <span>小計：</span><span id="total">@Model.TotalPrice</span>
                     </div>
+                    @Html.HiddenFor(model => model.Id)
+                    @Html.HiddenFor(model => model.MemberAccount)
                     @Html.HiddenFor(model => model.TotalPrice)
                     <div class="bottomArea">
                         <button type="button" id="back">上一頁</button>

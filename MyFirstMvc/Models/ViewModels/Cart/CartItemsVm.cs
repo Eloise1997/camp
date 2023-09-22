@@ -20,6 +20,11 @@ namespace MyFirstMvc.Models.ViewModels.Cart
         public int RoomId { get; set; }
 
         /// <summary>
+        /// 房型Key
+        /// </summary>
+        public string RoomTypeId { get; set; }
+
+        /// <summary>
         /// 房型
         /// </summary>
         [Display(Name = "房型")]
@@ -29,7 +34,7 @@ namespace MyFirstMvc.Models.ViewModels.Cart
         /// 房號
         /// </summary>
         [Display(Name = "房號")]
-        public string RoomNumber { get; set; }
+        public string Room { get; set; }
 
         /// <summary>
         /// 入住日
