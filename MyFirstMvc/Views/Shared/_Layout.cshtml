@@ -15,6 +15,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Dela+Gothic+One&family=Kaisei+Decol&family=Kaisei+Tokumin&family=Mochiy+Pop+P+One&family=Yuji+Mai&display=swap"
           rel="stylesheet">
     <link rel="stylesheet" href="~/Content/main_all.css">
+    <!-- 引入SweetAlert庫的JavaScript和CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@10">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
     @RenderSection("css", required: false)
 </head>
 <body>
@@ -53,13 +56,15 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#"><i class="bi bi-calendar2-week"></i>&nbsp;預約去</a>
                     </li>
-
+                    <!--測試用 後續要拿掉-->
+                    <li class="nav-item">
+                        <a class="nav-link" href="@Url.Action("Cart", "Cart", new { area = "" })">購物車 </a>
+                    </li>
                 </ul>
                 <div class="memberNav d-flex flex-nowrap ">
                     @{
                         if (User.Identity.IsAuthenticated)
                         {
-
 
                             <a href="@Url.Action("Index", "Members", new { area = "" })" class="text-white me-2 ms-2"><i class="bi bi-person-fill"></i>會員專區</a>
                             <div>
@@ -74,9 +79,6 @@
 
                         }
                     }
-
-
-
                 </div>
             </div>
         </div>
@@ -85,7 +87,6 @@
     <div class="main">
         @RenderBody()
 
-
         <footer>
             <div><img src="~/images/campinglogo2.png" alt="" class=""></div>
             <div>&copy; @DateTime.Now.Year - Camping放鬆村</div>
@@ -93,13 +94,11 @@
         </footer>
     </div>
 
-
     <script src="https://kit.fontawesome.com/fa483230ea.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
-
 </body>
 </html>

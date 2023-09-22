@@ -148,6 +148,7 @@
     <Compile Include="Models\EFModels\RoomService.cs" />
     <Compile Include="Models\EFModels\RoomType.cs" />
     <Compile Include="Models\EFModels\Service.cs" />
+    <Compile Include="Models\EFModels\sysdiagram.cs" />
     <Compile Include="Models\EFModels\User.cs" />
     <Compile Include="Models\Infra\DAHelper.cs" />
     <Compile Include="Models\Infra\EmailHelper.cs" />

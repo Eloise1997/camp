@@ -26,6 +26,7 @@ namespace MyFirstMvc.Models.EFModels
 		public virtual DbSet<RoomService> RoomServices { get; set; }
 		public virtual DbSet<RoomType> RoomTypes { get; set; }
 		public virtual DbSet<Service> Services { get; set; }
+		public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
 		public virtual DbSet<User> Users { get; set; }
 
 		protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -56,11 +57,6 @@ namespace MyFirstMvc.Models.EFModels
 			modelBuilder.Entity<Order>()
 				.HasMany(e => e.OrderItems)
 				.WithRequired(e => e.Order)
-				.WillCascadeOnDelete(false);
-
-			modelBuilder.Entity<PaymentType>()
-				.HasMany(e => e.Carts)
-				.WithRequired(e => e.PaymentType)
 				.WillCascadeOnDelete(false);
 
 			modelBuilder.Entity<PaymentType>()
