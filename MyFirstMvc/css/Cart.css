@@ -26,32 +26,6 @@ body {
     z-index: -1;
 }
 
-/* 表格樣式 */
-table {
-    width: 70%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-    /* lu新增 */
-    table.tabledetail {
-        width: 100%;
-        border-collapse: collapse;
-        margin-top: 20px;
-    }
-
-        table.tabledetail tr {
-            border-bottom: 1px solid #ffddcd;
-        }
-
-th, td {
-    padding: 8px;
-    text-align: center;
-}
-
-th {
-    background-color: #f1bc99;
-}
-
 .extra-checkbox {
     /* 添加您的自訂樣式，例如背景顏色、邊框、大小等 */
     width: 15px;
