@@ -12,9 +12,10 @@
 {
     <div class="main">
         <div class="container mt-5 mb-5">
-
             <div class="cartarea">
+
                 <div class="cartPage">
+
                     <!--進度條 begin-->
                     <ul class="progressarea">
                         <li class="active">購物車</li>
@@ -74,6 +75,9 @@
                                     <td data-extraPrice>@(Model.Items[i].ExtraBed ? Model.Items[i].ExtraBedPrice.ToString() : "0")</td>
                                     <td data-subtotal>@Html.DisplayFor(model => model.Items[i].SubTotal)</td>
                                     <td>
+                                        <button class="delete-button" onclick="removeRow(this, @Model.Items[i].SubTotal)">刪除</button>
+                                    </td>
+                                    <td>
                                         @Html.HiddenFor(model => model.Items[i].Id)
                                         @Html.HiddenFor(model => model.Items[i].RoomType)
                                         @Html.HiddenFor(model => model.Items[i].RoomNumber)
@@ -85,13 +89,11 @@
                                         @Html.HiddenFor(model => model.Items[i].ExtraBedPrice)
                                         @Html.HiddenFor(model => model.Items[i].SubTotal)
                                     </td>
-                                    <td>
-                                        <button class="delete-button" onclick="removeRow(this, @Model.Items[i].SubTotal)">刪除</button>
-                                    </td>
                                 </tr>
                             }
                         </tbody>
                     </table>
+
                     <div class="totalArea">
                         <span>小計：</span><span id="total">@Model.TotalPrice</span>
                     </div>
