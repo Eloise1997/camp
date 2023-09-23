@@ -109,6 +109,11 @@ namespace MyFirstMvc.Services
             new CartRepository().EmptyCart(account);
         }
 
+        public void UpdateCartItem(CartVm vm)
+        {
+            new CartItemsRepository().UpdateExtraBed(vm);
+        }
+
         /// <summary>
         /// 比較欲新增的明細檔是否重複
         /// </summary>
