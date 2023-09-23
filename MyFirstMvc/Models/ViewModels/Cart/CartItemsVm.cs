@@ -34,7 +34,7 @@ namespace MyFirstMvc.Models.ViewModels.Cart
         /// 房號
         /// </summary>
         [Display(Name = "房號")]
-        public string Room { get; set; }
+        public string RoomNum { get; set; }
 
         /// <summary>
         /// 入住日
