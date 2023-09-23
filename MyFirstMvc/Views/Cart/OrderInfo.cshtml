@@ -1,10 +1,9 @@
 ﻿@model MyFirstMvc.Models.ViewModels.Cart.CartVm
 
 @{
-    ViewBag.Title = "Cart";
+    ViewBag.Title = "訂單資料";
 }
-@*@Styles.Render("~/css/progress.css")
-    @Styles.Render("~/css/cart.css")*@
+
 @section css{
     <link rel="stylesheet" href="~/css/Progress.css">
     <link rel="stylesheet" href="~/css/OrderInfo.css">
@@ -44,7 +43,7 @@
                             @foreach (var item in Model.Items)
                             {
                                 <tr>
-                                    <td>@item.RoomType</td>
+                                    <td>@item.RoomName</td>
                                     <td>@item.RoomNum</td>
                                     <td>@item.CheckInDate</td>
                                     <td>@item.CheckOutDate</td>

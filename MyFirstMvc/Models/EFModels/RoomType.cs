@@ -19,7 +19,7 @@ namespace MyFirstMvc.Models.EFModels
 
         [Required]
         [StringLength(50)]
-        public string RoomName { get; set; }
+        public string Name { get; set; }
 
         public int DisplayOrder { get; set; }
 

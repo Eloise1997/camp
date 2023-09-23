@@ -28,7 +28,7 @@ namespace MyFirstMvc.Models.ViewModels.Cart
         /// 房型
         /// </summary>
         [Display(Name = "房型")]
-        public string RoomType { get; set; }
+        public string RoomName { get; set; }
 
         /// <summary>
         /// 房號

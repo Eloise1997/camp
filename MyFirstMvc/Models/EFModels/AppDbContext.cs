@@ -55,6 +55,10 @@ namespace MyFirstMvc.Models.EFModels
 				.WillCascadeOnDelete(false);
 
 			modelBuilder.Entity<Order>()
+				.Property(e => e.PhoneNum)
+				.IsUnicode(false);
+
+			modelBuilder.Entity<Order>()
 				.HasMany(e => e.OrderItems)
 				.WithRequired(e => e.Order)
 				.WillCascadeOnDelete(false);

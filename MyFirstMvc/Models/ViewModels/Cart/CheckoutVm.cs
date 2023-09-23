@@ -16,7 +16,7 @@ namespace MyFirstMvc.Models.ViewModels.Cart
         [Display(Name = "手機")]
         [Required]
         [MaxLength(10)]
-        public string Phone { get; set; }
+        public string PhoneNum { get; set; }
 
         [Display(Name = "電子郵件")]
         [Required]

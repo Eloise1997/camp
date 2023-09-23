@@ -111,5 +111,10 @@ namespace MyFirstMvc.Controllers
 
 			return View(model);
 		}
+
+		public ActionResult Pay()
+		{
+			return View();
+		}
 	}
 }

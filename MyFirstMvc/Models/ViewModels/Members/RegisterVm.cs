@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace FProjectCamping.Models.ViewModels
+namespace FProjectCamping.Models.ViewModels.Members
 {
     public class RegisterVm
     {

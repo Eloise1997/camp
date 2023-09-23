@@ -1,4 +1,4 @@
-﻿@model FProjectCamping.Models.ViewModels.RegisterVm
+﻿@model FProjectCamping.Models.ViewModels.Members.RegisterVm
 
 
 @{
@@ -177,23 +177,5 @@
             phoneInput.value = "1990-12-12";
         }
     </script>
-    <script>
-        function passwordDisplay(inputElement) {
-            var password = inputElement.value;
-            console.log(password); 
-        }
-
-        function togglePasswordVisibility(iconElement) {
-            var passwordInput = iconElement.closest('.pwdarea').querySelector('input');
-            if (passwordInput.type === 'password') {
-                passwordInput.type = 'text';
-                iconElement.classList.remove('bi-eye-slash-fill');
-                iconElement.classList.add('bi-eye-fill');
-            } else {
-                passwordInput.type = 'password';
-                iconElement.classList.remove('bi-eye-fill');
-                iconElement.classList.add('bi-eye-slash-fill');
-            }
-        }
-    </script>
+    <script src="~/js/main_password.js"></script>
 }

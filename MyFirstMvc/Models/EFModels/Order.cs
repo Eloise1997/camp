@@ -26,6 +26,14 @@ namespace MyFirstMvc.Models.EFModels
 
         public int TotalPrice { get; set; }
 
+        [Required]
+        [StringLength(30)]
+        public string Name { get; set; }
+
+        [Required]
+        [StringLength(10)]
+        public string PhoneNum { get; set; }
+
         public virtual Member Member { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

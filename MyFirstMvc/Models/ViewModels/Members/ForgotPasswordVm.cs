@@ -7,18 +7,17 @@ using System.Xml.Linq;
 
 namespace FProjectCamping.Models.ViewModels.Members
 {
-	public class LoginVm
+	public class ForgotPasswordVm
 	{
 		[Display(Name = "帳號")]
-		[Required]
+		[Required(ErrorMessage ="{0} 必填")]
+		[StringLength(50)]
 		public string Account { get; set; }
 
-		[Display(Name = "密碼")]
-		[Required]
-		[DataType(DataType.Password)]
-		public string Password { get; set; }
+		[Display(Name = "Email")]
+		[Required(ErrorMessage = "{0} 必填")]
+		[StringLength(256)]
+		public string Email { get; set; }
 
-		[Display(Name = "記住我")]
-		public Boolean RememberMe { get; set; }
 	}
 }

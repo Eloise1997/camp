@@ -18,7 +18,7 @@ namespace MyFirstMvc.Models.ViewModels.Orders
 		/// 房號
 		/// </summary>
 		[Display(Name = "房號")]
-		public int OrderID { get; set; }
+		public int RoomNum { get; set; }
 
 		/// <summary>
 		/// 入住日

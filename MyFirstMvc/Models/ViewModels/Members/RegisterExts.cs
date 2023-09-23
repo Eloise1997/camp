@@ -1,12 +1,11 @@
-﻿
+﻿using MyFirstMvc.Models.EFModels;
 using MyFirstMvc.Models.Infra;
-using MyFirstMvc.Models.EFModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace FProjectCamping.Models.ViewModels
+namespace FProjectCamping.Models.ViewModels.Members
 {
     public static class RegisterExts
     {

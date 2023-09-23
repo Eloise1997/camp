@@ -6,16 +6,11 @@ using System.Linq;
 using System.Web;
 using System.Xml.Linq;
 
-namespace FProjectCamping.Models.ViewModels
+namespace FProjectCamping.Models.ViewModels.Members
 {
 	public class EditProfileVm
 	{
 		public int Id { get; set; }
-
-		[Display(Name = "帳號")]
-		[StringLength(50)]
-        [ReadOnly(true)]
-        public string Account { get; set; }
 
 		[Display(Name = "姓名")]
 		[Required]
@@ -35,6 +30,6 @@ namespace FProjectCamping.Models.ViewModels
 		[Display(Name = "生日")]
 		[DataType(DataType.Date)]
         [ReadOnly(true)] 
-        public DateTime Birthday { get; set; }
+        public DateTime? Birthday { get; set; }
 	}
 }

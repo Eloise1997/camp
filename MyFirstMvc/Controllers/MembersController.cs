@@ -1,8 +1,8 @@
-﻿using MyFirstMvc.Models.EFModels;
-using FProjectCamping.Models.ViewModels;
+﻿
+using FProjectCamping.Models.ViewModels.Members;
+using MyFirstMvc.Models.EFModels;
 using MyFirstMvc.Models.Infra;
 using MyFirstMvc.Models.Repositories;
-using MyFirstMvc.Models.ViewModels.Members;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -14,7 +14,7 @@ using System.Web.Mvc;
 using System.Web.Security;
 using System.Xml;
 
-namespace FProjectCamping.Members.Controllers
+namespace MyFirstMvc.Controllers
 {
     public class MembersController : Controller
     {

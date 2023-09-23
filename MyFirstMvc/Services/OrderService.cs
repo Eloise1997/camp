@@ -10,7 +10,7 @@ namespace MyFirstMvc.Services
 {
     public class OrderService
     {
-        public void CreateOrder(string account, CartVm cart, CheckoutVm vm)
+        public  void CreateOrder(string account, CartVm cart, CheckoutVm vm)
         {
             // todo : 拉到Repo
             var db = new AppDbContext();
@@ -19,8 +19,8 @@ namespace MyFirstMvc.Services
             var order = new Order
             {
                 MemberId = memberId,
-                // Name = vm.Name, 缺少...todo
-                // Phone = vm.Phone, 缺少...todo
+                Name = vm.Name,
+                PhoneNum = vm.PhoneNum,
                 // Email = vm.Email, 缺少...todo
                 OrderTime = DateTime.Now,
                 // Coupon = vm.Coupon, 缺少...todo..允許Null

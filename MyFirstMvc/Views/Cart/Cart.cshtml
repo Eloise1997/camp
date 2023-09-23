@@ -1,7 +1,7 @@
 ﻿@model MyFirstMvc.Models.ViewModels.Cart.CartVm
 
 @{
-    ViewBag.Title = "Cart";
+    ViewBag.Title = "購物車";
 }
 
 @section css{
@@ -63,7 +63,7 @@
                             @for (var i = 0; i < Model.Items.Count; i++)
                             {
                                 <tr>
-                                    <td>@Html.DisplayFor(model => model.Items[i].RoomType)</td>
+                                    <td>@Html.DisplayFor(model => model.Items[i].RoomName)</td>
                                     <td>@Html.DisplayFor(model => model.Items[i].RoomNum)</td>
                                     <td>@Html.DisplayFor(model => model.Items[i].CheckInDate)</td>
                                     <td>@Html.DisplayFor(model => model.Items[i].CheckOutDate)</td>

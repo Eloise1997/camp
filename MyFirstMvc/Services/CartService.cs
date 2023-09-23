@@ -32,8 +32,8 @@ namespace MyFirstMvc.Services
             foreach (var item in vm.Items)
             {
                 var (roomName, roomTypeName) = GetRoomTypeName(roomTypes, rooms, item.RoomId);
-                item.RoomType = roomTypeName;
-                item.Room = roomName;
+                item.RoomName = roomTypeName;
+                item.RoomNum = roomName;
             }
 
             return vm;
@@ -143,7 +143,7 @@ namespace MyFirstMvc.Services
 
             if (room == null) throw new Exception($"未設定 RoomId : {roomId} 的對應資料");
 
-            return (room.Name, roomTypes.FirstOrDefault(x => x.Id == room.RoomTypeId).RoomName);
+            return (room.RoomName, roomTypes.FirstOrDefault(x => x.Id == room.RoomTypeId).Name);
         }
     }
 }

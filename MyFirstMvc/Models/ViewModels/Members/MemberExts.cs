@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace FProjectCamping.Models.ViewModels
+namespace FProjectCamping.Models.ViewModels.Members
 {
 	public static class MemberExts
 	{
@@ -13,7 +13,6 @@ namespace FProjectCamping.Models.ViewModels
 			return new EditProfileVm
 			{
 				Id = member.Id,
-				Account = member.Account,
 				Email = member.Email,
 				Name = member.Name,
 				PhoneNum = member.PhoneNum,

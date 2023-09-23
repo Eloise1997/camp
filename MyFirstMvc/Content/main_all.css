@@ -28,12 +28,24 @@ a {
 
 /* 右邊會員專區設定 */
 .memberNav a{
-    margin-right:15px;
+    margin:0 3px;
     text-decoration: none;
 }
 .memberNav a:hover{
     text-decoration: underline;
 }
+
+/*登出*/
+    .memberNav a.logoutbtn {
+          border:1px solid #FFF;
+          padding:0 5px;
+          border-radius:5px;
+    }
+
+    .memberNav a.logoutbtn:hover {
+        text-decoration:none;
+        background:#95775e;
+    }
 
 
 footer {
@@ -49,6 +61,15 @@ footer img{
 }
 footer br{
     display: none;
+}
+.pwdarea {
+    position: relative;
+}
+
+.togglePassword {
+    position: absolute;
+    top: 8px;
+    right: 10px;
 }
 @media screen and (max-width: 1024px) {
     body .container {
