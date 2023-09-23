@@ -17,8 +17,6 @@ namespace MyFirstMvc.Models.EFModels
 
         public int Id { get; set; }
 
-        public int CampTypeId { get; set; }
-
         [Required]
         [StringLength(50)]
         public string RoomName { get; set; }
